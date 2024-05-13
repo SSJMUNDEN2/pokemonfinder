@@ -6,7 +6,7 @@ from tensorflow.keras.applications.resnet50 import preprocess_input
 from tensorflow.keras.models import load_model
 
 # Load your trained model
-model = load_model('/Users/mukunthanpremraj/Downloads/Mandatory Sauber/mein_modell.h5')  # Ensure this path is correct
+model = load_model('/Users/mukunthanpremraj/Desktop/ZHAW /01_KI/pokemon/Mandatory Sauber/mein_modell.h5')  # Ensure this path is correct
 
 def predict_pokemon(img):
     img = Image.fromarray(img.astype('uint8'), 'RGB')  # Ensure the image is in RGB
@@ -16,7 +16,7 @@ def predict_pokemon(img):
     img_array = preprocess_input(img_array)  # Preprocess the input as expected by ResNet50
     
     prediction = model.predict(img_array)  # Predict using the model
-    classes = ['Charmeleon', 'Dewgong', 'Zubat' ]  # Specific Pokémon names
+    classes = ['Butterfree', 'Dratini', 'Machop' ]  # Specific Pokémon names
     return {classes[i]: float(prediction[0][i]) for i in range(3)}  # Return the prediction
 
 # Define Gradio interface
